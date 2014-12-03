@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.0"
+
+    defaultConfig {
+        applicationId "com.unifstudios.gallerylollipop"
+        minSdkVersion 21
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+        pkgTask -> pkgTask.jniFolders = new HashSet<File>();
+            pkgTask.jniFolders.add(new File(projectDir, 'libs'));
+    }
+}
+
+dependencies {
+    compile "com.android.support:support-v13:21.0.+"
+    compile "com.android.support:support-v4:21.0.+"
+    compile "com.googlecode.mp4parser:isoparser:1.0-RC-15"
+    compile "com.adobe.xmp:xmpcore:5.1.2"
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}

@@ -1,0 +1,5 @@
+syntax: glob
+src/.idea
+src/**/build
+src/.gradle
+src/**/local.properties
