@@ -3,3 +3,4 @@ src/.idea
 src/**/build
 src/.gradle
 src/**/local.properties
+manifest-merger-release-report.txt
