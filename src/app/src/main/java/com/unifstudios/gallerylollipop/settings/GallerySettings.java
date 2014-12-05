@@ -18,6 +18,7 @@ package com.unifstudios.gallerylollipop.settings;
 
 import android.preference.PreferenceActivity;
 
+// TODO: doesn't work? black screen
 public class GallerySettings extends PreferenceActivity {
     private static final String TAG = "GallerySettings";
 }

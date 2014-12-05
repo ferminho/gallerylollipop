@@ -97,8 +97,9 @@ public class GalleryActionBar implements OnNavigationListener {
     private static final ActionItem[] sClusterItems = new ActionItem[] {
         new ActionItem(FilterUtils.CLUSTER_BY_ALBUM, true, false, R.string.albums,
                 R.string.group_by_album),
-        new ActionItem(FilterUtils.CLUSTER_BY_LOCATION, true, false,
-                R.string.locations, R.string.location, R.string.group_by_location),
+            // TODO: no Location filter to avoid requiring FINE/COARSE location permissions
+//        new ActionItem(FilterUtils.CLUSTER_BY_LOCATION, true, false,
+//                R.string.locations, R.string.location, R.string.group_by_location),
         new ActionItem(FilterUtils.CLUSTER_BY_TIME, true, false, R.string.times,
                 R.string.time, R.string.group_by_time),
         new ActionItem(FilterUtils.CLUSTER_BY_FACE, true, false, R.string.people,

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<manifest android:versionCode="40030"
-        android:versionName="1.1.40030"
+<!-- old versionCode: 40030 -->
+<!-- old versionName: 1.1.40030 -->
+<manifest android:versionCode="14120501"
+        android:versionName="14.12.5.1"
         xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.unifstudios.gallerylollipop">
 
@@ -12,24 +14,38 @@
     <permission android:name="com.unifstudios.gallerylollipop.permission.GALLERY_PROVIDER"
             android:protectionLevel="signatureOrSystem" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <permission android:name="com.unifstudios.gallerylollipop.filtershow.permission.READ"
+        android:protectionLevel="signature" />
+
+    <permission android:name="com.unifstudios.gallerylollipop.filtershow.permission.WRITE"
+        android:protectionLevel="signature" />
+
+    <!-- old permissions; they are not really needed (seems so at least) -->
+    <!--<uses-permission android:name="android.permission.CAMERA" />-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />-->
+    <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+
+    <!-- old permissions; needed to be able to sort by Location -->
+    <!-- it's not worth the rejection these permissions usually cause -->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+
+    <!-- old permissions; unclear if they are needed -->
+    <!--<uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.USE_CREDENTIALS" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
+
     <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
     <uses-permission android:name="com.unifstudios.gallerylollipop.permission.GALLERY_PROVIDER" />
 
     <supports-screens android:smallScreens="false"
@@ -238,12 +254,6 @@
                 <data android:mimeType="video/*" />
             </intent-filter>
         </activity>
-
-        <permission android:name="com.unifstudios.gallerylollipop.filtershow.permission.READ"
-                    android:protectionLevel="signature" />
-
-        <permission android:name="com.unifstudios.gallerylollipop.filtershow.permission.WRITE"
-                    android:protectionLevel="signature" />
 
         <provider
             android:name="com.unifstudios.gallerylollipop.filtershow.provider.SharedImageProvider"
