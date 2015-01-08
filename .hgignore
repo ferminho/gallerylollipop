@@ -6,3 +6,5 @@ src/**/local.properties
 manifest-merger-release-report.txt
 src/build
 src/local.properties
+src/app/app.iml
+src/src.iml
