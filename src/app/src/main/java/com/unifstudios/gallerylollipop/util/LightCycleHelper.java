@@ -18,7 +18,15 @@ package com.unifstudios.gallerylollipop.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.net.Uri;
+import android.provider.MediaStore;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class LightCycleHelper {
     public static class PanoramaMetadata {
@@ -35,8 +43,28 @@ public class LightCycleHelper {
 
     public static final PanoramaMetadata NOT_PANORAMA = new PanoramaMetadata(false, false);
 
+    private static final String PanoramaAttribute = "MeteringMode";
+    private static final int PanoramaAttributeValue = 65535;
+
     public static PanoramaMetadata getPanoramaMetadata(Context context, Uri uri) {
-        return NOT_PANORAMA;
+        PanoramaMetadata metadata = NOT_PANORAMA;
+        try {
+            Cursor cursor = context.getContentResolver().query(
+                    uri, new String[]{ MediaStore.Images.Media.DATA }, null, null, null);
+            int colIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            String path = cursor.getString(colIndex);
+            cursor.close();
+
+            ExifInterface exifInterface = new ExifInterface(path);
+            int value = exifInterface.getAttributeInt(PanoramaAttribute, -1);
+            if (value == PanoramaAttributeValue) {
+                metadata = new PanoramaMetadata(true, true);
+            }
+        } catch (IOException e) {
+        }
+
+        return metadata;
     }
 
     /**

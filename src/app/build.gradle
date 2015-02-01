@@ -27,6 +27,7 @@ android {
 dependencies {
     compile "com.android.support:support-v13:21.0.+"
     compile "com.android.support:support-v4:21.0.+"
+    compile 'com.google.android.gms:play-services-panorama:6.5.87'
     compile "com.googlecode.mp4parser:isoparser:1.0-RC-15"
     compile "com.adobe.xmp:xmpcore:5.1.2"
     compile fileTree(dir: 'libs', include: ['*.jar'])

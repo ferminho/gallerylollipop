@@ -37,6 +37,6 @@ public class PanoramaViewHelper {
     }
 
     public void showPanorama(Uri uri) {
-        /* Do nothing */
+        // FIXME : launch the pano viewer!
     }
 }
