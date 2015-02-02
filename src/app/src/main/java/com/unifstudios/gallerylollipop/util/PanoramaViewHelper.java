@@ -16,16 +16,32 @@
 package com.unifstudios.gallerylollipop.util;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 
-public class PanoramaViewHelper {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.panorama.Panorama;
+import com.google.android.gms.panorama.PanoramaApi;
+
+public class PanoramaViewHelper implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+
+    public static final String TAG = "Gallery Lollipop";
+    private Activity mActivity = null;
+    private GoogleApiClient mClient;
+    private boolean connected = false;
 
     public PanoramaViewHelper(Activity activity) {
-        /* Do nothing */
+        mActivity = activity;
+        mClient = new GoogleApiClient.Builder(activity, this, this)
+                .addApi(Panorama.API)
+                .build();
     }
 
     public void onStart() {
-        /* Do nothing */
+        mClient.connect();
     }
 
     public void onCreate() {
@@ -33,10 +49,44 @@ public class PanoramaViewHelper {
     }
 
     public void onStop() {
-        /* Do nothing */
+        mClient.disconnect();
     }
 
     public void showPanorama(Uri uri) {
-        // FIXME : launch the pano viewer!
+        Log.e(TAG, "Loading panorama " + uri.getPath());
+        Panorama.PanoramaApi.loadPanoramaInfo(mClient, uri).setResultCallback(
+                new ResultCallback<PanoramaApi.PanoramaResult>() {
+                    @Override
+                    public void onResult(PanoramaApi.PanoramaResult result) {
+                        Log.e(TAG, "Result is " + result.getStatus().getStatusMessage());
+                        if (result.getStatus().isSuccess()) {
+                            Intent viewerIntent = result.getViewerIntent();
+                            if (viewerIntent != null) {
+                                mActivity.startActivity(viewerIntent);
+                            }
+                        } else {
+                            Log.e(TAG, "error loading panorama: " + result);
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        connected = true;
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        connected = false;
+        Log.i(TAG, "Panorama connection suspended due to " +
+                (i == GoogleApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED ?
+                        "service disconnected" : "network lost"));
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        connected = false;
+        Log.e(TAG, "Cannot connect to panorama service (" + connectionResult.getErrorCode() + ")");
     }
 }
