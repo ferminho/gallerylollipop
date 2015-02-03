@@ -30,5 +30,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-panorama:6.5.87'
     compile "com.googlecode.mp4parser:isoparser:1.0-RC-15"
     compile "com.adobe.xmp:xmpcore:5.1.2"
+    compile "com.drewnoakes:metadata-extractor:2.7.2"
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
