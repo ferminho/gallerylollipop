@@ -2,14 +2,14 @@
 
 <!-- old versionCode: 40030 -->
 <!-- old versionName: 1.1.40030 -->
-<manifest android:versionCode="14120501"
-        android:versionName="14.12.5.1"
+<manifest android:versionCode="15020301"
+        android:versionName="15.2.3.1"
         xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.unifstudios.gallerylollipop">
 
     <original-package android:name="com.unifstudios.gallerylollipop" />
 
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="19" />
 
     <permission android:name="com.unifstudios.gallerylollipop.permission.GALLERY_PROVIDER"
             android:protectionLevel="signatureOrSystem" />
