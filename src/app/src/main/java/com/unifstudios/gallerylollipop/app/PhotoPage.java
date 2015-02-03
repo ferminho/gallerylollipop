@@ -590,8 +590,8 @@ public abstract class PhotoPage extends ActivityState implements
             case R.id.photopage_bottom_control_panorama:
                 return mIsPanorama;
             case R.id.photopage_bottom_control_tiny_planet:
-                return mHaveImageEditor && mShowBars
-                        && mIsPanorama360 && !mPhotoView.getFilmMode();
+                return false;//mHaveImageEditor && mShowBars
+                        //&& mIsPanorama360 && !mPhotoView.getFilmMode();
             default:
                 return false;
         }

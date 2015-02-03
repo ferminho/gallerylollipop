@@ -83,7 +83,9 @@ public class AlbumSlidingWindow implements AlbumDataLoader.DataListener {
         @Override
         public void panoramaInfoAvailable(MediaObject mediaObject, boolean isPanorama,
                 boolean isPanorama360) {
-            if (mEntry != null) mEntry.isPanorama = isPanorama;
+            if (mEntry != null) {
+                mEntry.isPanorama = isPanorama;
+            }
         }
     }
 

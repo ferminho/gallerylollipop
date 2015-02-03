@@ -60,6 +60,10 @@
             android:largeHeap="true"
             android:restoreAnyVersion="true"
             android:supportsRtl="true">
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <uses-library android:name="com.google.android.media.effects" android:required="false" />
         <activity android:name="com.unifstudios.gallerylollipop.app.MovieActivity"
                 android:label="@string/movie_view_label"
