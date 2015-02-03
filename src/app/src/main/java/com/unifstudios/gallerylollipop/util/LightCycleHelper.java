@@ -69,22 +69,17 @@ public class LightCycleHelper {
             Metadata metadata = ImageMetadataReader.readMetadata(new File(path));
             if (metadata.containsDirectory(ExifIFD0Directory.class)) {
                 ExifIFD0Directory exifDir = metadata.getDirectory(ExifIFD0Directory.class);
-                int exifTagValue = exifDir.getInt(PanoramaExifTag);
-                boolean isPanorama = exifTagValue == PanoramaExifTagValue;
-                boolean is360 = metadata.containsDirectory(XmpDirectory.class);
-                panoMetadata = new PanoramaMetadata(is360, isPanorama);
+                if (exifDir.containsTag(PanoramaExifTag)) {
+                    int exifTagValue = exifDir.getInt(PanoramaExifTag);
+                    boolean isPanorama = exifTagValue == PanoramaExifTagValue;
+                    boolean is360 = metadata.containsDirectory(XmpDirectory.class);
+                    panoMetadata = new PanoramaMetadata(is360, isPanorama);
+                }
             }
 
-//            ExifInterface exifInterface = new ExifInterface(path);
-//            int value = exifInterface.getAttributeInt(PanoramaAttribute, -1);
-//            if (value == PanoramaAttributeValue) {
-//
-//                panoMetadata = new PanoramaMetadata(true, true);
-//            }
         } catch (IOException e) {
         } catch (ImageProcessingException e) {
         } catch (MetadataException e) {
-            e.printStackTrace();
         }
 
         return panoMetadata;
