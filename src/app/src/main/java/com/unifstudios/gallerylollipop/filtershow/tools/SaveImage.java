@@ -346,9 +346,9 @@ public class SaveImage {
         // newSourceUri is then pointing to the new location.
         // If no file is moved, newSourceUri will be the same as mSourceUri.
         Uri newSourceUri = mSourceUri;
-        if (!flatten) {
-            newSourceUri = moveSrcToAuxIfNeeded(mSourceUri, mDestinationFile);
-        }
+//        if (!flatten) {
+//            newSourceUri = moveSrcToAuxIfNeeded(mSourceUri, mDestinationFile);
+//        }
 
         Uri savedUri = mSelectedImageUri;
         if (mPreviewImage != null) {
@@ -537,9 +537,9 @@ public class SaveImage {
         Uri selectedImageUri = filterShowActivity.getSelectedImageUri();
         Uri sourceImageUri = MasterImage.getImage().getUri();
         boolean flatten = false;
-        if (preset.contains(FilterRepresentation.TYPE_TINYPLANET)){
-            flatten = true;
-        }
+//        if (preset.contains(FilterRepresentation.TYPE_TINYPLANET)){
+//            flatten = true;
+//        }
         Intent processIntent = ProcessingService.getSaveIntent(filterShowActivity, preset,
                 destination, selectedImageUri, sourceImageUri, flatten, 90, 1f, true);
 
@@ -674,15 +674,15 @@ public class SaveImage {
         // file), we can't just update the Uri. We have to create a new Uri.
         boolean fileUri = isFileUri(sourceUri);
 
-        if (fileUri || oldSelectedFile == null || !deleteOriginal) {
+//        if (fileUri || oldSelectedFile == null || !deleteOriginal) {
             result = context.getContentResolver().insert(
                     Images.Media.EXTERNAL_CONTENT_URI, values);
-        } else {
-            context.getContentResolver().update(sourceUri, values, null, null);
-            if (oldSelectedFile.exists()) {
-                oldSelectedFile.delete();
-            }
-        }
+//        } else {
+//            context.getContentResolver().update(sourceUri, values, null, null);
+//            if (oldSelectedFile.exists()) {
+//                oldSelectedFile.delete();
+//            }
+//        }
         return result;
     }
 
