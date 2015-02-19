@@ -15,6 +15,7 @@
 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/ingest_switch_view"
+          android:title=""
           android:showAsAction="always" />
     <item android:id="@+id/ingest_import_items"
           android:showAsAction="always|withText"

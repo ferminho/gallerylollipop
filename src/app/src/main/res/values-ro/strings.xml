@@ -14,8 +14,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="1928079047368929634">"Galerie"</string>
     <string name="gadget_title" msgid="259405922673466798">"Ramă foto"</string>
     <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
@@ -50,7 +49,7 @@
     <string name="wallpaper" msgid="140165383777262070">"Se setează imaginea de fundal..."</string>
     <string name="camera_setas_wallpaper" msgid="797463183863414289">"Imagine de fundal"</string>
     <string name="delete" msgid="2839695998251824487">"Ștergeţi"</string>
-  <plurals name="delete_selection">
+  <plurals name="delete_selection" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="6453379735401083732">"Ștergeţi articolul selectat?"</item>
     <item quantity="other" msgid="5874316486520635333">"Ștergeţi articolele selectate?"</item>
   </plurals>
@@ -68,17 +67,17 @@
     <string name="details_title" msgid="2611396603977441273">"%1$d din %2$d (de) elemente:"</string>
     <string name="close" msgid="5585646033158453043">"Închideţi"</string>
     <string name="switch_to_camera" msgid="7280111806675169992">"Comutaţi la Camera foto"</string>
-  <plurals name="number_of_items_selected">
+  <plurals name="number_of_items_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="2142579311530586258">"%1$d selectate"</item>
     <item quantity="one" msgid="2478365152745637768">"%1$d selectat"</item>
     <item quantity="other" msgid="754722656147810487">"%1$d selectate"</item>
   </plurals>
-  <plurals name="number_of_albums_selected">
+  <plurals name="number_of_albums_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="749292746814788132">"%1$d selectate"</item>
     <item quantity="one" msgid="6184377003099987825">"%1$d selectat"</item>
     <item quantity="other" msgid="53105607141906130">"%1$d selectate"</item>
   </plurals>
-  <plurals name="number_of_groups_selected">
+  <plurals name="number_of_groups_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="3466388370310869238">"%1$d selectate"</item>
     <item quantity="one" msgid="5030162638216034260">"%1$d selectat"</item>
     <item quantity="other" msgid="3512041363942842738">"%1$d selectate"</item>
@@ -155,7 +154,7 @@
     <string name="ffx_x_process" msgid="4779398678661811765">"Proces. încr."</string>
     <string name="ffx_washout" msgid="4594160692176642735">"Latte"</string>
     <string name="ffx_washout_color" msgid="8034075742195795219">"Litografie"</string>
-  <plurals name="make_albums_available_offline">
+  <plurals name="make_albums_available_offline" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="2171596356101611086">"Se face disponibil offline albumul."</item>
     <item quantity="other" msgid="4948604338155959389">"Se fac disponibile offline albumele"</item>
   </plurals>
@@ -206,7 +205,7 @@
     <string name="pano_progress_text" msgid="1586851614586678464">"Se redă panorama"</string>
     <string name="save" msgid="613976532235060516">"Salvaţi"</string>
     <string name="ingest_scanning" msgid="1062957108473988971">"Se scanează conținutul..."</string>
-  <plurals name="ingest_number_of_items_scanned">
+  <plurals name="ingest_number_of_items_scanned" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="2623289390474007396">"%1$d elemente scanate"</item>
     <item quantity="one" msgid="4340019444460561648">"%1$d element scanat"</item>
     <item quantity="other" msgid="3138021473860555499">"%1$d (de) elemente scanate"</item>
@@ -236,7 +235,7 @@
     <string name="pref_camera_recordlocation_title" msgid="371208839215448917">"Stocaţi locaţia"</string>
     <string name="pref_camera_location_label" msgid="2254270920298609161">"LOCAȚIE"</string>
     <string name="pref_camera_timer_title" msgid="3105232208281893389">"Cronometru numărătoare inversă"</string>
-  <plurals name="pref_camera_timer_entry">
+  <plurals name="pref_camera_timer_entry" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="1654523400981245448">"O secundă"</item>
     <item quantity="other" msgid="6455381617076792481">"%d (de) secunde"</item>
   </plurals>
@@ -432,7 +431,7 @@
     <string name="tab_albums" msgid="8079449907770685691">"Albume"</string>
     <string name="camera_menu_more_label" msgid="6868642182125198710">"MAI MULTE OPȚIUNI"</string>
     <string name="camera_menu_settings_label" msgid="875454962069404723">"SETĂRI"</string>
-  <plurals name="number_of_photos">
+  <plurals name="number_of_photos" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="6949174783125614798">"%1$d fotografie"</item>
     <item quantity="other" msgid="3813306834113858135">"%1$d fotografii"</item>
   </plurals>

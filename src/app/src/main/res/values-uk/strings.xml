@@ -14,8 +14,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="1928079047368929634">"Галерея"</string>
     <string name="gadget_title" msgid="259405922673466798">"Фото-рамка"</string>
     <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
@@ -50,8 +49,8 @@
     <string name="wallpaper" msgid="140165383777262070">"Встановлення фонового малюнка..."</string>
     <string name="camera_setas_wallpaper" msgid="797463183863414289">"Фоновий мал."</string>
     <string name="delete" msgid="2839695998251824487">"Видалити"</string>
-  <plurals name="delete_selection">
-    <item quantity="one" msgid="6453379735401083732">"Видалити вибраний елемент?"</item>
+  <plurals name="delete_selection" tools:ignore="MissingQuantity">
+    <item quantity="one" msgid="6453379735401083732" tools:ignore="ImpliedQuantity">"Видалити вибраний елемент?"</item>
     <item quantity="other" msgid="5874316486520635333">"Видалити вибрані елементи?"</item>
   </plurals>
     <string name="confirm" msgid="8646870096527848520">"Підтвердити"</string>
@@ -68,17 +67,17 @@
     <string name="details_title" msgid="2611396603977441273">"Елементи: %1$d з %2$d"</string>
     <string name="close" msgid="5585646033158453043">"Закрити"</string>
     <string name="switch_to_camera" msgid="7280111806675169992">"Перейти до програми Камера"</string>
-  <plurals name="number_of_items_selected">
+  <plurals name="number_of_items_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="2142579311530586258">"Вибрано %1$d"</item>
     <item quantity="one" msgid="2478365152745637768">"Вибрано %1$d"</item>
     <item quantity="other" msgid="754722656147810487">"Вибрано %1$d"</item>
   </plurals>
-  <plurals name="number_of_albums_selected">
+  <plurals name="number_of_albums_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="749292746814788132">"Вибрано %1$d"</item>
     <item quantity="one" msgid="6184377003099987825">"Вибрано %1$d"</item>
     <item quantity="other" msgid="53105607141906130">"Вибрано %1$d"</item>
   </plurals>
-  <plurals name="number_of_groups_selected">
+  <plurals name="number_of_groups_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="3466388370310869238">"Вибрано %1$d"</item>
     <item quantity="one" msgid="5030162638216034260">"Вибрано %1$d"</item>
     <item quantity="other" msgid="3512041363942842738">"Вибрано %1$d"</item>
@@ -155,8 +154,8 @@
     <string name="ffx_x_process" msgid="4779398678661811765">"X-процес"</string>
     <string name="ffx_washout" msgid="4594160692176642735">"Латте"</string>
     <string name="ffx_washout_color" msgid="8034075742195795219">"Літографія"</string>
-  <plurals name="make_albums_available_offline">
-    <item quantity="one" msgid="2171596356101611086">"Надання доступу до альбому в режимі офлайн."</item>
+  <plurals name="make_albums_available_offline" tools:ignore="MissingQuantity">
+    <item quantity="one" msgid="2171596356101611086" tools:ignore="ImpliedQuantity">"Надання доступу до альбому в режимі офлайн."</item>
     <item quantity="other" msgid="4948604338155959389">"Надання доступу до альбомів у режимі офлайн."</item>
   </plurals>
     <string name="try_to_set_local_album_available_offline" msgid="2184754031896160755">"Цей елемент зберігається локально та доступний у режимі офлайн."</string>
@@ -206,7 +205,7 @@
     <string name="pano_progress_text" msgid="1586851614586678464">"Обробка панорами"</string>
     <string name="save" msgid="613976532235060516">"Зберегти"</string>
     <string name="ingest_scanning" msgid="1062957108473988971">"Сканування вмісту..."</string>
-  <plurals name="ingest_number_of_items_scanned">
+  <plurals name="ingest_number_of_items_scanned" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="2623289390474007396">"Проскановано елементів: %1$d"</item>
     <item quantity="one" msgid="4340019444460561648">"Проскановано елементів: %1$d"</item>
     <item quantity="other" msgid="3138021473860555499">"Проскановано елементів: %1$d"</item>
@@ -236,8 +235,8 @@
     <string name="pref_camera_recordlocation_title" msgid="371208839215448917">"Геотеги"</string>
     <string name="pref_camera_location_label" msgid="2254270920298609161">"МІСЦЕЗНАХОДЖЕННЯ"</string>
     <string name="pref_camera_timer_title" msgid="3105232208281893389">"Таймер зворотного відліку"</string>
-  <plurals name="pref_camera_timer_entry">
-    <item quantity="one" msgid="1654523400981245448">"1 с"</item>
+  <plurals name="pref_camera_timer_entry" tools:ignore="MissingQuantity">
+    <item quantity="one" msgid="1654523400981245448" tools:ignore="ImpliedQuantity">"1 с"</item>
     <item quantity="other" msgid="6455381617076792481">"%d с"</item>
   </plurals>
     <!-- no translation found for pref_camera_timer_sound_default (7066624532144402253) -->
@@ -432,7 +431,7 @@
     <string name="tab_albums" msgid="8079449907770685691">"Альбоми"</string>
     <string name="camera_menu_more_label" msgid="6868642182125198710">"ІНШІ ОПЦІЇ"</string>
     <string name="camera_menu_settings_label" msgid="875454962069404723">"НАЛАШТУВАННЯ"</string>
-  <plurals name="number_of_photos">
+  <plurals name="number_of_photos" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="6949174783125614798">"%1$d фото"</item>
     <item quantity="other" msgid="3813306834113858135">"%1$d фото"</item>
   </plurals>

@@ -14,8 +14,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="1928079047368929634">"Igalari"</string>
     <string name="gadget_title" msgid="259405922673466798">"Uhlaka lwesithombe"</string>
     <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
@@ -51,7 +50,7 @@
     <string name="camera_setas_wallpaper" msgid="797463183863414289">"Iphephadonga"</string>
     <string name="delete" msgid="2839695998251824487">"Susa"</string>
   <plurals name="delete_selection">
-    <item quantity="one" msgid="6453379735401083732">"Sula into ekhethiwe?"</item>
+    <item quantity="one" msgid="6453379735401083732" tools:ignore="ImpliedQuantity">"Sula into ekhethiwe?"</item>
     <item quantity="other" msgid="5874316486520635333">"Sula izinto ezikhethiwe?"</item>
   </plurals>
     <string name="confirm" msgid="8646870096527848520">"Qinisekisa"</string>
@@ -158,7 +157,7 @@
     <string name="ffx_washout" msgid="4594160692176642735">"i-Latte"</string>
     <string name="ffx_washout_color" msgid="8034075742195795219">"i-Litho"</string>
   <plurals name="make_albums_available_offline">
-    <item quantity="one" msgid="2171596356101611086">"Yenza i-albhamu itholakale ungaxhumekile kwi-inthanethi"</item>
+    <item quantity="one" msgid="2171596356101611086" tools:ignore="ImpliedQuantity">"Yenza i-albhamu itholakale ungaxhumekile kwi-inthanethi"</item>
     <item quantity="other" msgid="4948604338155959389">"Yenza ama-albhamu atholakale ungaxhumekile kwi-inthanethi"</item>
   </plurals>
     <string name="try_to_set_local_album_available_offline" msgid="2184754031896160755">"Le ntwana igcinwa endaweni bese itholakala ungaxhunyiwe kwi-intanethi."</string>
@@ -239,7 +238,7 @@
     <string name="pref_camera_location_label" msgid="2254270920298609161">"INDAWO"</string>
     <string name="pref_camera_timer_title" msgid="3105232208281893389">"Isikali sesikhathi esibala ngokwehla"</string>
   <plurals name="pref_camera_timer_entry">
-    <item quantity="one" msgid="1654523400981245448">"1 isekhondi"</item>
+    <item quantity="one" msgid="1654523400981245448" tools:ignore="ImpliedQuantity">"1 isekhondi"</item>
     <item quantity="other" msgid="6455381617076792481">"%d amasekhondi"</item>
   </plurals>
     <!-- no translation found for pref_camera_timer_sound_default (7066624532144402253) -->

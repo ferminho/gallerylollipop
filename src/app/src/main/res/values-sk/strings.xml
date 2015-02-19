@@ -14,8 +14,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="1928079047368929634">"Galéria"</string>
     <string name="gadget_title" msgid="259405922673466798">"Rámec fotografie"</string>
     <string name="details_ms" msgid="940634969189855292">"%1$02d:%2$02d"</string>
@@ -50,7 +49,7 @@
     <string name="wallpaper" msgid="140165383777262070">"Prebieha nastavenie tapety..."</string>
     <string name="camera_setas_wallpaper" msgid="797463183863414289">"Tapeta"</string>
     <string name="delete" msgid="2839695998251824487">"Odstrániť"</string>
-  <plurals name="delete_selection">
+  <plurals name="delete_selection" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="6453379735401083732">"Odstrániť vybratú položku?"</item>
     <item quantity="other" msgid="5874316486520635333">"Odstrániť vybraté položky?"</item>
   </plurals>
@@ -68,17 +67,17 @@
     <string name="details_title" msgid="2611396603977441273">"%1$d z %2$d položiek:"</string>
     <string name="close" msgid="5585646033158453043">"Zavrieť"</string>
     <string name="switch_to_camera" msgid="7280111806675169992">"Prepnúť do režimu fotoaparát"</string>
-  <plurals name="number_of_items_selected">
+  <plurals name="number_of_items_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="2142579311530586258">"Počet vybratých položiek: %1$d"</item>
     <item quantity="one" msgid="2478365152745637768">"Počet vybratých položiek: %1$d"</item>
     <item quantity="other" msgid="754722656147810487">"Počet vybratých položiek: %1$d"</item>
   </plurals>
-  <plurals name="number_of_albums_selected">
+  <plurals name="number_of_albums_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="749292746814788132">"Počet vybratých albumov: %1$d"</item>
     <item quantity="one" msgid="6184377003099987825">"Počet vybratých albumov: %1$d"</item>
     <item quantity="other" msgid="53105607141906130">"Počet vybratých albumov: %1$d"</item>
   </plurals>
-  <plurals name="number_of_groups_selected">
+  <plurals name="number_of_groups_selected" tools:ignore="MissingQuantity">
     <item quantity="zero" msgid="3466388370310869238">"Počet vybratých skupín: %1$d"</item>
     <item quantity="one" msgid="5030162638216034260">"Počet vybratých skupín: %1$d"</item>
     <item quantity="other" msgid="3512041363942842738">"Počet vybratých skupín: %1$d"</item>
@@ -155,7 +154,7 @@
     <string name="ffx_x_process" msgid="4779398678661811765">"Cross process"</string>
     <string name="ffx_washout" msgid="4594160692176642735">"Latte"</string>
     <string name="ffx_washout_color" msgid="8034075742195795219">"Litografia"</string>
-  <plurals name="make_albums_available_offline">
+  <plurals name="make_albums_available_offline" tools:ignore="MissingQuantity">
     <item quantity="one" msgid="2171596356101611086">"Sprístupňovanie albumu v režime offline."</item>
     <item quantity="other" msgid="4948604338155959389">"Sprístupňovanie albumov v režime offline."</item>
   </plurals>
