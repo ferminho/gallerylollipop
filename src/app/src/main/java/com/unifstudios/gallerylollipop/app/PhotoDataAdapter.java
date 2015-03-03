@@ -508,7 +508,7 @@ public class PhotoDataAdapter implements PhotoPage.Model {
         MediaItem item = getItem(mCurrentIndex + offset);
         return (item == null)
                 ? false
-                : item.getMediaType() == MediaItem.MEDIA_TYPE_VIDEO;
+                : item.getMediaType() == MediaItem.MEDIA_TYPE_VIDEO || "image/gif".equals(item.getMimeType());
     }
 
     @Override
