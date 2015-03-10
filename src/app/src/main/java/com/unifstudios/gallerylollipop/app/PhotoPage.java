@@ -19,6 +19,7 @@ package com.unifstudios.gallerylollipop.app;
 import android.annotation.TargetApi;
 import android.app.ActionBar.OnMenuVisibilityListener;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -1247,7 +1248,10 @@ public abstract class PhotoPage extends ActivityState implements
 
     public void playGif(Activity activity, String path) {
         try {
-            new GifDialog(activity, path);
+            FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+            GifDialog df = new GifDialog();
+            df.setGifPath(path);
+            df.show(ft, "gif_fragment");
         } catch (ActivityNotFoundException e) {
             Toast.makeText(activity, activity.getString(R.string.video_err),
                     Toast.LENGTH_SHORT).show();

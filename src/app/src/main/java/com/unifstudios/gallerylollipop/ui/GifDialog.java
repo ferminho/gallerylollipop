@@ -1,11 +1,13 @@
 package com.unifstudios.gallerylollipop.ui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -18,58 +20,59 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class GifDialog implements AnimatedGifDrawable.UpdateListener {
+public class GifDialog extends DialogFragment implements AnimatedGifDrawable.UpdateListener {
 
-    private Activity mActivity;
-    private AlertDialog mDialog;
+    private Dialog mDialog;
 
     private String mGifPath;
     private ProgressBar mProgressBar;
     private ImageView mImageView;
     private AnimatedGifDrawable mDrawable;
 
-    public GifDialog(Activity activity, String gifPath) {
-        mActivity = activity;
-        mGifPath = gifPath;
-        createDialog();
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mDialog.show();
-                mLoadGifTask.execute();
-            }
-        });
+    public GifDialog() {
     }
 
-    private void createDialog() {
-        LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public void setGifPath(String gifPath) {
+        mGifPath = gifPath;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_GifDialog);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = createDialog();
+        mLoadGifTask.execute();
+        return view;
+    }
+
+    private View createDialog() {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.gif_view, null);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mImageView = (ImageView) view.findViewById(R.id.imageViewGif);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-        builder.setView(view).setCancelable(true);
-        mDialog = builder.create();
-        mDialog.setCanceledOnTouchOutside(true);
-
-        // make it full width
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        Window window = mDialog.getWindow();
-        lp.copyFrom(window.getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        window.setAttributes(lp);
+        mDialog = getDialog();
+        mDialog.setCancelable(true);
+        mDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        return view;
     }
 
     private AsyncTask<Void, Void, Void> mLoadGifTask = new AsyncTask<Void, Void, Void>() {
         @Override
         protected Void doInBackground(Void... params) {
-            InputStream is = null;
-            try {
-                is = new FileInputStream(mGifPath);
-                mDrawable = new AnimatedGifDrawable(is, GifDialog.this, 1);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            if (mGifPath != null) {
+                InputStream is = null;
+                try {
+                    is = new FileInputStream(mGifPath);
+                    mDrawable = new AnimatedGifDrawable(is, GifDialog.this, 1);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
             return null;
         }
@@ -88,7 +91,7 @@ public class GifDialog implements AnimatedGifDrawable.UpdateListener {
 
     @Override
     public void update() {
-        mActivity.runOnUiThread(new Runnable() {
+        getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 mImageView.invalidate();

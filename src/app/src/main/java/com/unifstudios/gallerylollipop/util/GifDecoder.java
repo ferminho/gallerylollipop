@@ -23,6 +23,8 @@ public class GifDecoder {
     protected static final int MAX_STACK_SIZE = 4096;
     protected InputStream in;
     protected int status;
+
+
     protected int width; // full image width
     protected int height; // full image height
     protected boolean gctFlag; // global color table used
@@ -58,6 +60,15 @@ public class GifDecoder {
     protected byte[] pixels;
     protected Vector<GifFrame> frames; // frames read from current file
     protected int frameCount;
+
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 
     private static class GifFrame {
         public GifFrame(Bitmap im, int del) {
