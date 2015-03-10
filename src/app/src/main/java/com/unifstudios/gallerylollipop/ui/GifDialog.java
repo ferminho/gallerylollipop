@@ -8,9 +8,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.unifstudios.gallerylollipop.R;
@@ -26,7 +23,7 @@ public class GifDialog extends DialogFragment implements AnimatedGifDrawable.Upd
 
     private String mGifPath;
     private ProgressBar mProgressBar;
-    private ImageView mImageView;
+    private GifView gifView;
     private AnimatedGifDrawable mDrawable;
 
     public GifDialog() {
@@ -46,7 +43,8 @@ public class GifDialog extends DialogFragment implements AnimatedGifDrawable.Upd
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = createDialog();
-        mLoadGifTask.execute();
+        gifView.setGif(mGifPath);
+        gifView.play();
         return view;
     }
 
@@ -54,7 +52,7 @@ public class GifDialog extends DialogFragment implements AnimatedGifDrawable.Upd
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.gif_view, null);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        mImageView = (ImageView) view.findViewById(R.id.imageViewGif);
+        gifView = (GifView) view.findViewById(R.id.imageViewGif);
 
         mDialog = getDialog();
         mDialog.setCancelable(true);
@@ -79,13 +77,13 @@ public class GifDialog extends DialogFragment implements AnimatedGifDrawable.Upd
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            mProgressBar.setVisibility(View.INVISIBLE);
-            if (mDrawable != null) {
-                mImageView.setImageDrawable(mDrawable);
-            } else {
-                mImageView.setImageResource(android.R.drawable.stat_notify_error);
-            }
+//            super.onPostExecute(aVoid);
+//            mProgressBar.setVisibility(View.INVISIBLE);
+//            if (mDrawable != null) {
+//                gifView.setImageDrawable(mDrawable);
+//            } else {
+//                gifView.setImageResource(android.R.drawable.stat_notify_error);
+//            }
         }
     };
 
@@ -94,8 +92,8 @@ public class GifDialog extends DialogFragment implements AnimatedGifDrawable.Upd
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mImageView.invalidate();
-                mImageView.invalidateDrawable(mDrawable);
+                gifView.invalidate();
+                gifView.invalidateDrawable(mDrawable);
             }
         });
     }
