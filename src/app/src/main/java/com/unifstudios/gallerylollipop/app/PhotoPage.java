@@ -30,6 +30,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.NfcAdapter.CreateBeamUrisCallback;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
@@ -64,12 +65,19 @@ import com.unifstudios.gallerylollipop.ui.DetailsHelper.CloseListener;
 import com.unifstudios.gallerylollipop.ui.DetailsHelper.DetailsSource;
 import com.unifstudios.gallerylollipop.ui.GLRootView;
 import com.unifstudios.gallerylollipop.ui.GLView;
+import com.unifstudios.gallerylollipop.ui.GifDialog;
 import com.unifstudios.gallerylollipop.ui.MenuExecutor;
 import com.unifstudios.gallerylollipop.ui.PhotoView;
 import com.unifstudios.gallerylollipop.ui.SelectionManager;
 import com.unifstudios.gallerylollipop.ui.SynchronizedHandler;
 import com.unifstudios.gallerylollipop.util.GalleryUtils;
 import com.unifstudios.gallerylollipop.util.UsageStatistics;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public abstract class PhotoPage extends ActivityState implements
         PhotoView.Listener, AppBridge.Server, ShareActionProvider.OnShareTargetSelectedListener,
@@ -1140,6 +1148,8 @@ public abstract class PhotoPage extends ActivityState implements
         boolean unlock = ((supported & MediaItem.SUPPORT_UNLOCK) != 0);
         boolean goBack = ((supported & MediaItem.SUPPORT_BACK) != 0);
         boolean launchCamera = ((supported & MediaItem.SUPPORT_CAMERA_SHORTCUT) != 0);
+        boolean isGif = "image/gif".equals(item.getMimeType());
+
 
         if (playVideo) {
             // determine if the point is at center (1/6) of the photo view.
@@ -1150,9 +1160,13 @@ public abstract class PhotoPage extends ActivityState implements
                 && (Math.abs(y - h / 2) * 12 <= h);
         }
 
-        if (playVideo) {
+        if (playVideo || isGif) {
             if (mSecureAlbum == null) {
-                playVideo(mActivity, item.getPlayUri(), item.getName());
+                if (isGif) {
+                    playGif(mActivity, item.getFilePath());
+                } else {
+                    playVideo(mActivity, item.getPlayUri(), item.getName());
+                }
             } else {
                 mActivity.getStateManager().finishState(this);
             }
@@ -1225,6 +1239,15 @@ public abstract class PhotoPage extends ActivityState implements
                     .putExtra(Intent.EXTRA_TITLE, title)
                     .putExtra(MovieActivity.KEY_TREAT_UP_AS_BACK, true);
             activity.startActivityForResult(intent, REQUEST_PLAY_VIDEO);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(activity, activity.getString(R.string.video_err),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void playGif(Activity activity, String path) {
+        try {
+            new GifDialog(activity, path);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(activity, activity.getString(R.string.video_err),
                     Toast.LENGTH_SHORT).show();
