@@ -223,7 +223,7 @@ public class SinglePhotoDataAdapter extends TileImageViewAdapter
 
     @Override
     public boolean isVideo(int offset) {
-        return mItem.getMediaType() == MediaItem.MEDIA_TYPE_VIDEO;
+        return mItem.getMediaType() == MediaItem.MEDIA_TYPE_VIDEO || "image/gif".equals(mItem.getMimeType());
     }
 
     @Override
