@@ -8,8 +8,8 @@ android {
         applicationId "com.unifstudios.gallerylollipop"
         minSdkVersion 21
         targetSdkVersion 19
-        versionCode 15031201
-        versionName "15.3.12.1"
+        versionCode 15031301
+        versionName "15.3.13.1"
     }
     buildTypes {
         release {

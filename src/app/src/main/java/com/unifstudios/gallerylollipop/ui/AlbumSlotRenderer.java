@@ -123,7 +123,8 @@ public class AlbumSlotRenderer extends AbstractSlotRenderer {
             renderRequestFlags |= SlotView.RENDER_MORE_FRAME;
         }
 
-        if (entry.mediaType == MediaObject.MEDIA_TYPE_VIDEO || "image/gif".equals(entry.item.getMimeType())) {
+        if (entry.mediaType == MediaObject.MEDIA_TYPE_VIDEO ||
+                (entry.item != null && "image/gif".equals(entry.item.getMimeType()))) {
             drawVideoOverlay(canvas, width, height);
         }
 

@@ -2,8 +2,8 @@
 
 <!-- old versionCode: 40030 -->
 <!-- old versionName: 1.1.40030 -->
-<manifest android:versionCode="15031201"
-        android:versionName="15.3.12.1"
+<manifest android:versionCode="15031301"
+        android:versionName="15.3.13.1"
         xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.unifstudios.gallerylollipop">
 
